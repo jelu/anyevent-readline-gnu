@@ -2,7 +2,7 @@ Compatibility for AnyEvent 5.0
 
 --- a/Gnu.pm
 +++ b/Gnu.pm
-@@ -128,9 +128,16 @@
+@@ -128,9 +128,17 @@
     my $line = shift;
     my $point = $self->{point};
  
@@ -10,9 +10,10 @@ Compatibility for AnyEvent 5.0
 -      $cb->($line, $point);
 -   };
 +   if (AE->can('postpone')) {
-+      eval { AE::postpone sub {
++      eval 'AE::postpone sub {
 +         $cb->($line, $point);
-+      }; }; die $@ if $@;
++      };';
++      die $@ if $@;
 +   }
 +   else {
 +      AE::timer (0, 0, sub {
