@@ -10,9 +10,9 @@ Compatibility for AnyEvent 5.0
 -      $cb->($line, $point);
 -   };
 +   if (AE->can('postpone')) {
-+      AE::postpone sub {
++      eval { AE::postpone sub {
 +         $cb->($line, $point);
-+      };
++      }; }; die $@ if $@;
 +   }
 +   else {
 +      AE::timer (0, 0, sub {
