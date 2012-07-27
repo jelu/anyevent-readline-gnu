@@ -13,7 +13,7 @@ WriteMakefile(
     EXE_FILES => ["bin/rltelnet"],
     PREREQ_PM => {
        common::sense  => 3,
-       AnyEvent       => 5,
+       AnyEvent       => 6,
        Term::ReadLine::Gnu  => 1.2,
     },
 );

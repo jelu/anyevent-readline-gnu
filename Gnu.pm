@@ -128,16 +128,9 @@ sub on_line {
    my $line = shift;
    my $point = $self->{point};
 
-   if (AE->can('postpone')) {
-      AE::postpone sub {
-         $cb->($line, $point);
-      };
-   }
-   else {
-      AE::timer (0, 0, sub {
-         $cb->($line, $point);
-      });
-   }
+   AE::postpone sub {
+      $cb->($line, $point);
+   };
 }
 
 sub new {
