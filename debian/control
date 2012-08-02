@@ -21,5 +21,3 @@ Description: unknown
  something that, again, isn't obvious how to do.
  .
  AnyEvent::ReadLine::Gnu has figured it all out for you, once and for all.
- .
- This description was automagically extracted from the module by dh-make-perl.

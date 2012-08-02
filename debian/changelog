@@ -1,4 +1,11 @@
-libanyevent-readline-gnu-perl (1.0-1) unstable; urgency=low
+libanyevent-readline-gnu-perl (1.0-1~unstable+2) unstable; urgency=low
+
+  * Update package descriptions.
+  * New way of releasing packages.
+
+ -- Jerry Lundström <lundstrom.jerry@gmail.com>  Wed, 01 Aug 2012 16:30:27 -0700
+
+libanyevent-readline-gnu-perl (1.0-1~unstable+1) unstable; urgency=low
 
   * Initial Release.
 
