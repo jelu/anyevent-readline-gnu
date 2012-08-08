@@ -1,0 +1,36 @@
+Compatibility for AnyEvent 5.0
+
+--- a/Gnu.pm
++++ b/Gnu.pm
+@@ -128,9 +128,17 @@
+    my $line = shift;
+    my $point = $self->{point};
+ 
+-   AE::postpone sub {
+-      $cb->($line, $point);
+-   };
++   if (AE->can('postpone')) {
++      eval 'AE::postpone sub {
++         $cb->($line, $point);
++      };';
++      die $@ if $@;
++   }
++   else {
++      AE::timer (0, 0, sub {
++         $cb->($line, $point);
++      });
++   }
+ }
+ 
+ sub new {
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -13,7 +13,7 @@
+     EXE_FILES => ["bin/rltelnet"],
+     PREREQ_PM => {
+        common::sense  => 3,
+-       AnyEvent       => 6,
++       AnyEvent       => 5,
+        Term::ReadLine::Gnu  => 1.2,
+     },
+ );

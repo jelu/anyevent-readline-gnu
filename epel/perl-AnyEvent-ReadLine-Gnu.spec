@@ -7,6 +7,7 @@ Group:          Development/Libraries
 License:        GPL+ or Artistic
 URL:            https://github.com/jelu/anyevent-readline-gnu/
 Source0:        anyevent-readline-gnu-%{version}.tar.gz
+Patch0:         perl-AnyEvent-ReadLine-Gnu_compat-ae-5.0.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
@@ -29,6 +30,7 @@ This module has figured it all out for you, once and for all.
 
 %prep
 %setup -q -n anyevent-readline-gnu
+%patch0 -p1
 
 
 %build
