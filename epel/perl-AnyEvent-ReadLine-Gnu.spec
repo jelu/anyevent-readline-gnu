@@ -1,5 +1,5 @@
 Name:           perl-AnyEvent-ReadLine-Gnu
-Version:        0.12
+Version:        1.0
 Release:        1%{?dist}
 Summary:        AnyEvent::ReadLine::Gnu - event-based interface to Term::ReadLine::Gnu
 
@@ -26,6 +26,19 @@ It also has some utility functions for printing messages asynchronously,
 something that, again, isn't obvious how to do.
 
 This module has figured it all out for you, once and for all.
+
+%package -n rltelnet
+Summary: rltelnet - connect to a socket with readline frontend
+Group: Applications/Communications
+Version: 1.0
+%description -n rltelnet
+This program connects to a socket using AnyEvent::Socket::tcp_connect, prints
+everything it receives from the socket and offers a readline editing interface
+to send lines to the socket.
+
+This is very remotely what telnet does when used on a non-telnet socket,
+except that it uses readline and supports more types of socketsd (e.g.
+unix domain sockets).
 
 
 %prep
@@ -58,8 +71,12 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/AnyEvent*
 %{_mandir}/man3/*.3*
 
+%files -n rltelnet
+%{_bindir}/rltelnet
+%{_mandir}/man1/*.1*
+
 
 %changelog
-* Tue Aug 07 2012 Jerry Lundström < lundstrom.jerry at gmail.com > - 0.12-1
+* Tue Aug 07 2012 Jerry Lundström < lundstrom.jerry at gmail.com > - 1.0-1
 - Initial package for Fedora
 
