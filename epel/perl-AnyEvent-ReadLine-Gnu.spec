@@ -1,6 +1,6 @@
 Name:           perl-AnyEvent-ReadLine-Gnu
 Version:        1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        AnyEvent::ReadLine::Gnu - event-based interface to Term::ReadLine::Gnu
 
 Group:          Development/Libraries
@@ -77,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Sep 21 2012 Jerry Lundström < lundstrom.jerry at gmail.com > - 1.0-2
+- Fix compatability with AnyEvent 5, wasn't keeping the timer watcher so it was
+  going away and not firing the timer.
+
 * Tue Aug 07 2012 Jerry Lundström < lundstrom.jerry at gmail.com > - 1.0-1
 - Initial package for Fedora
 

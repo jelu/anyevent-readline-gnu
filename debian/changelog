@@ -1,3 +1,10 @@
+libanyevent-readline-gnu-perl (1.0-2~unstable+1) unstable; urgency=low
+
+  * Fix compatability with AnyEvent 5, wasn't keeping the timer watcher so it
+    was going away and not firing the timer.
+
+ -- Jerry Lundström <lundstrom.jerry@gmail.com>  Fri, 21 Sep 2012 14:17:45 +0200
+
 libanyevent-readline-gnu-perl (1.0-1~unstable+2) unstable; urgency=low
 
   * Update package descriptions.

@@ -16,8 +16,8 @@ Compatibility for AnyEvent 5.0
 +      die $@ if $@;
 +   }
 +   else {
-+      AE::timer (0, 0, sub {
-+         $cb->($line, $point);
++      my $w; $w = AE::timer (0, 0, sub {
++         $cb->($line, $point); undef($w);
 +      });
 +   }
  }
