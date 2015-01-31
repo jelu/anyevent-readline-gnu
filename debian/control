@@ -1,9 +1,8 @@
 Source: libanyevent-readline-gnu-perl
 Section: perl
 Priority: optional
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: libanyevent-perl (>= 5), libcommon-sense-perl (>= 3),
- libterm-readline-gnu-perl (>= 1.2), perl
+Build-Depends: debhelper (>= 7), quilt, perl, libanyevent-perl (>= 5),
+ libcommon-sense-perl (>= 3), libterm-readline-gnu-perl (>= 1.2)
 Maintainer: Jerry Lundström <lundstrom.jerry@gmail.com>
 Standards-Version: 3.9.1
 Homepage: http://search.cpan.org/dist/AnyEvent-ReadLine-Gnu/
@@ -12,7 +11,7 @@ Package: libanyevent-readline-gnu-perl
 Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends}, libanyevent-perl (>= 5),
  libcommon-sense-perl (>= 3), libterm-readline-gnu-perl (>= 1.2)
-Description: unknown
+Description: AnyEvent::ReadLine::Gnu
  The Term::ReadLine module family is bizarre (and you are encouraged not to
  look at its sources unless you want to go blind). It does support event-based
  operations, somehow, but it's hard to figure out.
